@@ -1205,7 +1205,211 @@
     background: linear-gradient(90deg, var(--gold), transparent);
     margin: 1rem 0 2rem;
   }
-</style>
+
+  /* =====================
+     STICKY MOBILE CALL BAR
+  ===================== */
+  .sticky-call-bar {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .sticky-call-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      background: var(--gold);
+      padding: 0.9rem 1.2rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .sticky-call-bar.form-in-view {
+      transform: translateY(100%);
+    }
+    .sticky-call-bar a {
+      color: #0D0D0D;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  /* =====================
+     MID-PAGE QUICK FORM
+  ===================== */
+  .midform-section {
+    background: var(--dark3);
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .midform-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .midform-inner h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 0.6rem;
+  }
+  .midform-inner p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  .midform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .midform-grid .field-full {
+    grid-column: 1 / -1;
+  }
+  .midform-grid input, .midform-grid select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .midform-grid input::placeholder { color: var(--muted); }
+  .midform-grid input:focus, .midform-grid select:focus { border-color: var(--gold); }
+  .midform-grid select { color: var(--muted); }
+  .midform-grid select option { background: var(--dark2); color: var(--text); }
+  .midform-submit {
+    width: 100%;
+    background: var(--gold);
+    color: #0D0D0D;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.03em;
+  }
+  .midform-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  @media(max-width: 500px) { .midform-grid { grid-template-columns: 1fr; } }
+
+  /* =====================
+     TRUST SECTION
+  ===================== */
+  .trust-section {
+    background: var(--dark);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+  .trust-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media(max-width: 800px) { .trust-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .trust-text .section-label { margin-bottom: 0.8rem; }
+  .trust-text h2 { margin-bottom: 1rem; }
+  .trust-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1.2rem; font-size: 0.95rem; }
+  .trust-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .trust-stat-box {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 6px;
+    padding: 1.4rem;
+    text-align: center;
+  }
+  .trust-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .trust-stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* =====================
+     SITUATION LINKS / SELLER TYPES
+  ===================== */
+  .situations-section {
+    background: var(--dark2);
+    padding: 5rem 2rem;
+  }
+  .situations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .situation-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: border-color 0.25s, transform 0.25s;
+    display: block;
+  }
+  .situation-card:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-3px); }
+  .situation-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
+  .situation-card h4 { font-size: 0.95rem; font-weight: 500; color: #fff; margin-bottom: 0.4rem; }
+  .situation-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+  .situation-card .learn-more { font-size: 0.78rem; color: var(--gold); margin-top: 0.8rem; display: block; letter-spacing: 0.05em; }
+
+  /* =====================
+     SERVICE AREA SECTION
+  ===================== */
+  .service-area-section {
+    background: var(--dark3);
+    padding: 3.5rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .service-area-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .service-area-inner .section-label { margin-bottom: 0.8rem; }
+  .service-area-inner p { color: var(--muted); font-size: 0.93rem; line-height: 1.85; max-width: 720px; margin: 0 auto; }
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .area-tag {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold);
+    font-size: 0.78rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }</style>
 </head>
 <body>
 
@@ -1380,6 +1584,139 @@
         <p>"Relocating for work, I needed a quick sale. Submitted my info on Monday, had an offer by Wednesday, and closed before I had to leave. Absolutely seamless."</p>
         <div class="test-author"><strong>Priya K.</strong> — Seller, Summerlin, NV</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SECTION -->
+<section class="trust-section" aria-label="Local trust and credibility">
+  <div class="trust-inner container reveal">
+    <div class="trust-text">
+      <div class="section-label">Why Trust Us</div>
+      <h2>We Know Las Vegas — This Is Our City Too</h2>
+      <div class="divider"></div>
+      <p>We are a Las Vegas-based team working exclusively in Clark County and the Greater Las Vegas valley. We know the neighborhoods — Summerlin, Henderson, North Las Vegas, Paradise, Spring Valley. We understand Nevada foreclosure law, Clark County Recorder procedures, and what motivated sellers actually need.</p>
+      <p>When you submit your property, you are not talking to a national call center. You are talking to a local team that has seen the same situations you are facing — and helped homeowners resolve them without agent fees, without repairs, and without months of waiting.</p>
+      <p style="font-size:0.9rem; color:var(--muted);">We respond to every submission within 24–48 hours. No obligation, no pressure.</p>
+    </div>
+    <div class="trust-stats reveal">
+      <div class="trust-stat-box">
+        <span class="trust-stat-num">48 hrs</span>
+        <span class="trust-stat-label">Response Guarantee</span>
+      </div>
+      <div class="trust-stat-box">
+        <span class="trust-stat-num">$0</span>
+        <span class="trust-stat-label">Fees to Sellers</span>
+      </div>
+      <div class="trust-stat-box">
+        <span class="trust-stat-num">7 days</span>
+        <span class="trust-stat-label">Fastest Close</span>
+      </div>
+      <div class="trust-stat-box">
+        <span class="trust-stat-num">Local</span>
+        <span class="trust-stat-label">Clark County Team</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATION LINKS — Motivated Seller Types -->
+<section class="situations-section" aria-label="Common seller situations we help with">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Your Situation</div>
+      <h2>Whatever Brought You Here — We Can Help</h2>
+      <div class="divider"></div>
+      <p style="color:var(--muted); max-width:560px;">Every seller's situation is different. We work with homeowners facing all kinds of circumstances. Find your situation below.</p>
+    </div>
+    <div class="situations-grid">
+      <a href="/stop-foreclosure-las-vegas" class="situation-card reveal">
+        <span class="situation-icon">⚠️</span>
+        <h4>Facing Foreclosure</h4>
+        <p>Received a Notice of Default? You may still have time. Selling before the auction is often your best option.</p>
+        <span class="learn-more">Read our foreclosure guide →</span>
+      </a>
+      <a href="/sell-inherited-house-las-vegas" class="situation-card reveal">
+        <span class="situation-icon">🏛️</span>
+        <h4>Inherited Property</h4>
+        <p>Dealing with probate or an estate sale? We work with heirs and executors — including out-of-state families.</p>
+        <span class="learn-more">See how it works →</span>
+      </a>
+      <a href="/sell-rental-property-tenants-las-vegas" class="situation-card reveal">
+        <span class="situation-icon">🔑</span>
+        <h4>Rental With Tenants</h4>
+        <p>Non-paying or difficult tenants? You don't need to evict before selling. Investors buy tenant-occupied homes.</p>
+        <span class="learn-more">Learn your options →</span>
+      </a>
+      <a data-target="sell-now" href="javascript:void(0)" class="situation-card reveal">
+        <span class="situation-icon">📦</span>
+        <h4>Relocating</h4>
+        <p>Moving for work or life? A fast cash sale means one less thing to manage when your timeline is tight.</p>
+        <span class="learn-more">Get started today →</span>
+      </a>
+      <a data-target="sell-now" href="javascript:void(0)" class="situation-card reveal">
+        <span class="situation-icon">⚖️</span>
+        <h4>Divorce Sale</h4>
+        <p>Nevada is a community property state. A quick, clean sale can help both parties move forward faster.</p>
+        <span class="learn-more">Talk to our team →</span>
+      </a>
+      <a href="/sell-house-fast-las-vegas-guide" class="situation-card reveal">
+        <span class="situation-icon">📖</span>
+        <h4>Not Sure?</h4>
+        <p>Read our complete guide to selling your house fast in Las Vegas — every situation covered in plain language.</p>
+        <span class="learn-more">Read the full guide →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MID-PAGE QUICK FORM -->
+<section class="midform-section" id="quick-offer" aria-label="Quick cash offer form">
+  <div class="midform-inner reveal">
+    <div class="section-label" style="text-align:center;">Fast Cash Offer</div>
+    <h2>Ready to Talk? Get a Response in 24 Hours</h2>
+    <p>No agent fees. No repairs. No pressure. Just tell us about your property and we will be in touch.</p>
+    <form id="midform-el" name="mid-page-offer" method="POST" data-netlify="true" data-netlify-honeypot="bot-field-mid">
+      <input type="hidden" name="form-name" value="mid-page-offer">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field-mid"></label></p>
+      <div class="midform-grid">
+        <div class="field">
+          <input type="text" name="mp_first" placeholder="First Name" required>
+        </div>
+        <div class="field">
+          <input type="tel" name="mp_phone" placeholder="Phone Number" required>
+        </div>
+        <div class="field field-full">
+          <input type="text" name="mp_address" placeholder="Property Address (Las Vegas, Henderson, North LV...)" required>
+        </div>
+        <div class="field">
+          <select name="mp_timeline">
+            <option value="">How soon do you need to sell?</option>
+            <option>ASAP — Within 30 days</option>
+            <option>1–3 Months</option>
+            <option>3–6 Months</option>
+            <option>Just Exploring</option>
+          </select>
+        </div>
+        <div class="field">
+          <select name="mp_situation">
+            <option value="">What is your situation?</option>
+            <option>Facing Foreclosure</option>
+            <option>Inherited Property</option>
+            <option>Rental With Tenants</option>
+            <option>Relocating</option>
+            <option>Divorce</option>
+            <option>Distressed / Needs Repairs</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="midform-submit">Get My Cash Offer — No Fees, No Obligation →</button>
+    </form>
+    <div class="success-msg" id="midform-success" style="display:none; padding:2rem; background:var(--dark3); border-radius:8px; border:1px solid rgba(201,168,76,0.2); margin-top:1rem;">
+      <div class="check">✅</div>
+      <h3>Got It — We'll Be in Touch</h3>
+      <p>Our team will review your property and reach out within 24–48 hours.</p>
     </div>
   </div>
 </section>
@@ -1760,6 +2097,25 @@
   </div>
 </section>
 
+<!-- SERVICE AREA SECTION -->
+<section class="service-area-section" aria-label="Las Vegas service areas">
+  <div class="service-area-inner reveal">
+    <div class="section-label">Service Area</div>
+    <p>We work with homeowners throughout the Greater Las Vegas area — including Las Vegas, Henderson, North Las Vegas, Summerlin, Paradise, Spring Valley, Enterprise, and Boulder City. If your property is in Clark County, Nevada, we can help. Our team is local, our buyer network is local, and we understand the specific laws, timelines, and market conditions that affect your neighborhood.</p>
+    <div class="area-tags">
+      <span class="area-tag">Las Vegas</span>
+      <span class="area-tag">Henderson</span>
+      <span class="area-tag">North Las Vegas</span>
+      <span class="area-tag">Summerlin</span>
+      <span class="area-tag">Paradise</span>
+      <span class="area-tag">Spring Valley</span>
+      <span class="area-tag">Enterprise</span>
+      <span class="area-tag">Boulder City</span>
+      <span class="area-tag">Clark County, NV</span>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 </main>
 
@@ -2021,6 +2377,36 @@
     });
   });
 
+  // Mid-page quick form
+  document.getElementById('midform-el').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    }).then(res => {
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('midform-success').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    }).catch(() => alert('Network error. Please check your connection.'));
+  });
+
+  // Sticky call bar — hide when a form is in view
+  const stickyBar = document.querySelector('.sticky-call-bar');
+  if (stickyBar) {
+    const forms = document.querySelectorAll('form');
+    const formObserver = new IntersectionObserver(entries => {
+      const anyVisible = entries.some(e => e.isIntersecting);
+      stickyBar.classList.toggle('form-in-view', anyVisible);
+    }, { threshold: 0.2 });
+    forms.forEach(f => formObserver.observe(f));
+  }
+
   // Scroll to top button
   const scrollBtn = document.getElementById('scroll-top');
   window.addEventListener('scroll', () => {
@@ -2036,6 +2422,11 @@
 <button id="scroll-top" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
+
+<!-- Sticky mobile call bar -->
+<div class="sticky-call-bar" role="complementary" aria-label="Submit your property">
+  <a href="#sell-now">✉️ &nbsp;Submit Your Property — Free, No Obligation</a>
+</div>
 
 </body>
 </html>
