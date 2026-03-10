@@ -1,14 +1,7 @@
-# robots.txt — Vegas Home Connect
-# https://sellvegashome.live
-
 User-agent: *
 Allow: /
 
-# Block access to any future admin or form-processing paths
-Disallow: /admin/
-Disallow: /api/
-Disallow: /submit/
-Disallow: /*.json$
+# Disallow Netlify form submission endpoints
+Disallow: /.netlify/
 
-# Sitemap location
 Sitemap: https://sellvegashome.live/sitemap.xml
